@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QLTDModelStoreContainer" CdmEntityContainer="QLTDEntities">
+    <EntitySetMapping Name="CongViecs">
+      <EntityTypeMapping TypeName="QLTDModel.CongViec">
+        <MappingFragment StoreEntitySet="CongViec">
+          <ScalarProperty Name="ID_CV" ColumnName="ID_CV" />
+          <ScalarProperty Name="TenCV" ColumnName="TenCV" />
+          <ScalarProperty Name="MoTaCV" ColumnName="MoTaCV" />
+          <ScalarProperty Name="LoaiViec" ColumnName="LoaiViec" />
+          <ScalarProperty Name="ID_NN" ColumnName="ID_NN" />
+          <ScalarProperty Name="ID_Admin" ColumnName="ID_Admin" />
+          <ScalarProperty Name="ID_NTD" ColumnName="ID_NTD" />
+          <ScalarProperty Name="ID_DD" ColumnName="ID_DD" />
+          <ScalarProperty Name="ID_LV" ColumnName="ID_LV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DiaDiems">
+      <EntityTypeMapping TypeName="QLTDModel.DiaDiem">
+        <MappingFragment StoreEntitySet="DiaDiem">
+          <ScalarProperty Name="ID_DD" ColumnName="ID_DD" />
+          <ScalarProperty Name="TenDD" ColumnName="TenDD" />
+          <ScalarProperty Name="CapDD" ColumnName="CapDD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LinhVucs">
+      <EntityTypeMapping TypeName="QLTDModel.LinhVuc">
+        <MappingFragment StoreEntitySet="LinhVuc">
+          <ScalarProperty Name="ID_LV" ColumnName="ID_LV" />
+          <ScalarProperty Name="TenLV" ColumnName="TenLV" />
+          <ScalarProperty Name="MotaLV" ColumnName="MotaLV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ND_Admin">
+      <EntityTypeMapping TypeName="QLTDModel.ND_Admin">
+        <MappingFragment StoreEntitySet="ND_Admin">
+          <ScalarProperty Name="ID_Admin" ColumnName="ID_Admin" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="TgLamViec" ColumnName="TgLamViec" />
+          <ScalarProperty Name="ID_TK" ColumnName="ID_TK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NganhNghes">
+      <EntityTypeMapping TypeName="QLTDModel.NganhNghe">
+        <MappingFragment StoreEntitySet="NganhNghe">
+          <ScalarProperty Name="ID_NN" ColumnName="ID_NN" />
+          <ScalarProperty Name="TenNN" ColumnName="TenNN" />
+          <ScalarProperty Name="MoTaNN" ColumnName="MoTaNN" />
+          <ScalarProperty Name="ID_LV" ColumnName="ID_LV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhaTuyenDungs">
+      <EntityTypeMapping TypeName="QLTDModel.NhaTuyenDung">
+        <MappingFragment StoreEntitySet="NhaTuyenDung">
+          <ScalarProperty Name="ID_NTD" ColumnName="ID_NTD" />
+          <ScalarProperty Name="TenNTD" ColumnName="TenNTD" />
+          <ScalarProperty Name="QuocGia" ColumnName="QuocGia" />
+          <ScalarProperty Name="QuyMo" ColumnName="QuyMo" />
+          <ScalarProperty Name="GPKD" ColumnName="GPKD" />
+          <ScalarProperty Name="ID_TK" ColumnName="ID_TK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaiKhoans">
+      <EntityTypeMapping TypeName="QLTDModel.TaiKhoan">
+        <MappingFragment StoreEntitySet="TaiKhoan">
+          <ScalarProperty Name="ID_TK" ColumnName="ID_TK" />
+          <ScalarProperty Name="TenDN" ColumnName="TenDN" />
+          <ScalarProperty Name="MK" ColumnName="MK" />
+          <ScalarProperty Name="NgayTao" ColumnName="NgayTao" />
+          <ScalarProperty Name="ID_Admin" ColumnName="ID_Admin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TinTuyenDungs">
+      <EntityTypeMapping TypeName="QLTDModel.TinTuyenDung">
+        <MappingFragment StoreEntitySet="TinTuyenDung">
+          <ScalarProperty Name="ID_TTD" ColumnName="ID_TTD" />
+          <ScalarProperty Name="TieuDe" ColumnName="TieuDe" />
+          <ScalarProperty Name="YeuCau" ColumnName="YeuCau" />
+          <ScalarProperty Name="TgLam" ColumnName="TgLam" />
+          <ScalarProperty Name="HanUT" ColumnName="HanUT" />
+          <ScalarProperty Name="SoLuongTD" ColumnName="SoLuongTD" />
+          <ScalarProperty Name="PhucLoi" ColumnName="PhucLoi" />
+          <ScalarProperty Name="MucLuong" ColumnName="MucLuong" />
+          <ScalarProperty Name="CapBac" ColumnName="CapBac" />
+          <ScalarProperty Name="TgDang" ColumnName="TgDang" />
+          <ScalarProperty Name="TrangThaiTTD" ColumnName="TrangThaiTTD" />
+          <ScalarProperty Name="TgianCapNhatTT" ColumnName="TgianCapNhatTT" />
+          <ScalarProperty Name="ID_Admin" ColumnName="ID_Admin" />
+          <ScalarProperty Name="ID_NTD" ColumnName="ID_NTD" />
+          <ScalarProperty Name="ID_CV" ColumnName="ID_CV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TinUngTuyens">
+      <EntityTypeMapping TypeName="QLTDModel.TinUngTuyen">
+        <MappingFragment StoreEntitySet="TinUngTuyen">
+          <ScalarProperty Name="ID_TUT" ColumnName="ID_TUT" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PhucLoi" ColumnName="PhucLoi" />
+          <ScalarProperty Name="MucLuong" ColumnName="MucLuong" />
+          <ScalarProperty Name="CapBac" ColumnName="CapBac" />
+          <ScalarProperty Name="KinhNghiemLV" ColumnName="KinhNghiemLV" />
+          <ScalarProperty Name="TrinhDoHocVan" ColumnName="TrinhDoHocVan" />
+          <ScalarProperty Name="KyNangChuyenMon" ColumnName="KyNangChuyenMon" />
+          <ScalarProperty Name="TgDang" ColumnName="TgDang" />
+          <ScalarProperty Name="TrangThaiTUT" ColumnName="TrangThaiTUT" />
+          <ScalarProperty Name="TgianCapNhatTT" ColumnName="TgianCapNhatTT" />
+          <ScalarProperty Name="ID_NN" ColumnName="ID_NN" />
+          <ScalarProperty Name="ID_Admin" ColumnName="ID_Admin" />
+          <ScalarProperty Name="ID_UV" ColumnName="ID_UV" />
+          <ScalarProperty Name="ID_DD" ColumnName="ID_DD" />
+          <ScalarProperty Name="ID_LV" ColumnName="ID_LV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UngTuyens">
+      <EntityTypeMapping TypeName="QLTDModel.UngTuyen">
+        <MappingFragment StoreEntitySet="UngTuyen">
+          <ScalarProperty Name="ID_CV" ColumnName="ID_CV" />
+          <ScalarProperty Name="ID_UV" ColumnName="ID_UV" />
+          <ScalarProperty Name="TrangThaiUT" ColumnName="TrangThaiUT" />
+          <ScalarProperty Name="TgianCapNhatTT" ColumnName="TgianCapNhatTT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UngViens">
+      <EntityTypeMapping TypeName="QLTDModel.UngVien">
+        <MappingFragment StoreEntitySet="UngVien">
+          <ScalarProperty Name="ID_UV" ColumnName="ID_UV" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="SYLL" ColumnName="SYLL" />
+          <ScalarProperty Name="CV" ColumnName="CV" />
+          <ScalarProperty Name="ID_DD" ColumnName="ID_DD" />
+          <ScalarProperty Name="ID_TK" ColumnName="ID_TK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="O" TypeName="QLTDModel.O" StoreEntitySet="O">
+      <EndProperty Name="DiaDiem">
+        <ScalarProperty Name="ID_DD" ColumnName="ID_DD" />
+      </EndProperty>
+      <EndProperty Name="NhaTuyenDung">
+        <ScalarProperty Name="ID_NTD" ColumnName="ID_NTD" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Thuoc" TypeName="QLTDModel.Thuoc" StoreEntitySet="Thuoc">
+      <EndProperty Name="LinhVuc">
+        <ScalarProperty Name="ID_LV" ColumnName="ID_LV" />
+      </EndProperty>
+      <EndProperty Name="NhaTuyenDung">
+        <ScalarProperty Name="ID_NTD" ColumnName="ID_NTD" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Tim" TypeName="QLTDModel.Tim" StoreEntitySet="Tim">
+      <EndProperty Name="NhaTuyenDung">
+        <ScalarProperty Name="ID_NTD" ColumnName="ID_NTD" />
+      </EndProperty>
+      <EndProperty Name="UngVien">
+        <ScalarProperty Name="ID_UV" ColumnName="ID_UV" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

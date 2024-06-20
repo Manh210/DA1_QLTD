@@ -1,0 +1,619 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLTDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CongViec">
+    <Key>
+      <PropertyRef Name="ID_CV" />
+    </Key>
+    <Property Name="ID_CV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenCV" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="MoTaCV" Type="nvarchar" MaxLength="100" />
+    <Property Name="LoaiViec" Type="nvarchar" MaxLength="50" />
+    <Property Name="ID_NN" Type="int" />
+    <Property Name="ID_Admin" Type="int" />
+    <Property Name="ID_NTD" Type="int" />
+    <Property Name="ID_DD" Type="int" />
+    <Property Name="ID_LV" Type="int" />
+  </EntityType>
+  <EntityType Name="DiaDiem">
+    <Key>
+      <PropertyRef Name="ID_DD" />
+    </Key>
+    <Property Name="ID_DD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenDD" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CapDD" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LinhVuc">
+    <Key>
+      <PropertyRef Name="ID_LV" />
+    </Key>
+    <Property Name="ID_LV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenLV" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MotaLV" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ND_Admin">
+    <Key>
+      <PropertyRef Name="ID_Admin" />
+    </Key>
+    <Property Name="ID_Admin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SDT" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="DOB" Type="date" Nullable="false" />
+    <Property Name="GioiTinh" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="TgLamViec" Type="date" />
+    <Property Name="ID_TK" Type="int" />
+  </EntityType>
+  <EntityType Name="NganhNghe">
+    <Key>
+      <PropertyRef Name="ID_NN" />
+    </Key>
+    <Property Name="ID_NN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenNN" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="MoTaNN" Type="nvarchar" MaxLength="100" />
+    <Property Name="ID_LV" Type="int" />
+  </EntityType>
+  <EntityType Name="NhaTuyenDung">
+    <Key>
+      <PropertyRef Name="ID_NTD" />
+    </Key>
+    <Property Name="ID_NTD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenNTD" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="QuocGia" Type="nvarchar" MaxLength="10" />
+    <Property Name="QuyMo" Type="nvarchar" MaxLength="10" />
+    <Property Name="GPKD" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="ID_TK" Type="int" />
+  </EntityType>
+  <EntityType Name="O">
+    <Key>
+      <PropertyRef Name="ID_DD" />
+      <PropertyRef Name="ID_NTD" />
+    </Key>
+    <Property Name="ID_DD" Type="int" Nullable="false" />
+    <Property Name="ID_NTD" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TaiKhoan">
+    <Key>
+      <PropertyRef Name="ID_TK" />
+    </Key>
+    <Property Name="ID_TK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenDN" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MK" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="NgayTao" Type="date" />
+    <Property Name="ID_Admin" Type="int" />
+  </EntityType>
+  <EntityType Name="Thuoc">
+    <Key>
+      <PropertyRef Name="ID_LV" />
+      <PropertyRef Name="ID_NTD" />
+    </Key>
+    <Property Name="ID_LV" Type="int" Nullable="false" />
+    <Property Name="ID_NTD" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tim">
+    <Key>
+      <PropertyRef Name="ID_UV" />
+      <PropertyRef Name="ID_NTD" />
+    </Key>
+    <Property Name="ID_UV" Type="int" Nullable="false" />
+    <Property Name="ID_NTD" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TinTuyenDung">
+    <Key>
+      <PropertyRef Name="ID_TTD" />
+    </Key>
+    <Property Name="ID_TTD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TieuDe" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="YeuCau" Type="nvarchar" MaxLength="100" />
+    <Property Name="TgLam" Type="nvarchar" MaxLength="50" />
+    <Property Name="HanUT" Type="date" />
+    <Property Name="SoLuongTD" Type="int" />
+    <Property Name="PhucLoi" Type="nvarchar" MaxLength="100" />
+    <Property Name="MucLuong" Type="nvarchar" MaxLength="100" />
+    <Property Name="CapBac" Type="nvarchar" MaxLength="50" />
+    <Property Name="TgDang" Type="datetime" />
+    <Property Name="TrangThaiTTD" Type="nvarchar" MaxLength="50" />
+    <Property Name="TgianCapNhatTT" Type="datetime" />
+    <Property Name="ID_Admin" Type="int" />
+    <Property Name="ID_NTD" Type="int" />
+    <Property Name="ID_CV" Type="int" />
+  </EntityType>
+  <EntityType Name="TinUngTuyen">
+    <Key>
+      <PropertyRef Name="ID_TUT" />
+    </Key>
+    <Property Name="ID_TUT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SDT" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="DOB" Type="date" Nullable="false" />
+    <Property Name="GioiTinh" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhucLoi" Type="nvarchar" MaxLength="100" />
+    <Property Name="MucLuong" Type="nvarchar" MaxLength="100" />
+    <Property Name="CapBac" Type="nvarchar" MaxLength="50" />
+    <Property Name="KinhNghiemLV" Type="nvarchar" MaxLength="200" />
+    <Property Name="TrinhDoHocVan" Type="nvarchar" MaxLength="100" />
+    <Property Name="KyNangChuyenMon" Type="nvarchar" MaxLength="200" />
+    <Property Name="TgDang" Type="datetime" />
+    <Property Name="TrangThaiTUT" Type="nvarchar" MaxLength="50" />
+    <Property Name="TgianCapNhatTT" Type="datetime" />
+    <Property Name="ID_NN" Type="int" />
+    <Property Name="ID_Admin" Type="int" />
+    <Property Name="ID_UV" Type="int" />
+    <Property Name="ID_DD" Type="int" />
+    <Property Name="ID_LV" Type="int" />
+  </EntityType>
+  <EntityType Name="UngTuyen">
+    <Key>
+      <PropertyRef Name="ID_CV" />
+      <PropertyRef Name="ID_UV" />
+      <PropertyRef Name="TgianCapNhatTT" />
+    </Key>
+    <Property Name="ID_CV" Type="int" Nullable="false" />
+    <Property Name="ID_UV" Type="int" Nullable="false" />
+    <Property Name="TrangThaiUT" Type="nvarchar" MaxLength="50" />
+    <Property Name="TgianCapNhatTT" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UngVien">
+    <Key>
+      <PropertyRef Name="ID_UV" />
+    </Key>
+    <Property Name="ID_UV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SDT" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="DOB" Type="date" Nullable="false" />
+    <Property Name="GioiTinh" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="SYLL" Type="nvarchar(max)" />
+    <Property Name="CV" Type="nvarchar(max)" />
+    <Property Name="ID_DD" Type="int" />
+    <Property Name="ID_TK" Type="int" />
+  </EntityType>
+  <Association Name="FK__CongViec__ID_Adm__5DCAEF64">
+    <End Role="ND_Admin" Type="Self.ND_Admin" Multiplicity="0..1" />
+    <End Role="CongViec" Type="Self.CongViec" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ND_Admin">
+        <PropertyRef Name="ID_Admin" />
+      </Principal>
+      <Dependent Role="CongViec">
+        <PropertyRef Name="ID_Admin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CongViec__ID_DD__5FB337D6">
+    <End Role="DiaDiem" Type="Self.DiaDiem" Multiplicity="0..1" />
+    <End Role="CongViec" Type="Self.CongViec" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DiaDiem">
+        <PropertyRef Name="ID_DD" />
+      </Principal>
+      <Dependent Role="CongViec">
+        <PropertyRef Name="ID_DD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CongViec__ID_LV__60A75C0F">
+    <End Role="LinhVuc" Type="Self.LinhVuc" Multiplicity="0..1" />
+    <End Role="CongViec" Type="Self.CongViec" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LinhVuc">
+        <PropertyRef Name="ID_LV" />
+      </Principal>
+      <Dependent Role="CongViec">
+        <PropertyRef Name="ID_LV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CongViec__ID_NN__5CD6CB2B">
+    <End Role="NganhNghe" Type="Self.NganhNghe" Multiplicity="0..1" />
+    <End Role="CongViec" Type="Self.CongViec" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NganhNghe">
+        <PropertyRef Name="ID_NN" />
+      </Principal>
+      <Dependent Role="CongViec">
+        <PropertyRef Name="ID_NN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CongViec__ID_NTD__5EBF139D">
+    <End Role="NhaTuyenDung" Type="Self.NhaTuyenDung" Multiplicity="0..1" />
+    <End Role="CongViec" Type="Self.CongViec" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhaTuyenDung">
+        <PropertyRef Name="ID_NTD" />
+      </Principal>
+      <Dependent Role="CongViec">
+        <PropertyRef Name="ID_NTD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ND_Admin__ID_TK__534D60F1">
+    <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
+    <End Role="ND_Admin" Type="Self.ND_Admin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaiKhoan">
+        <PropertyRef Name="ID_TK" />
+      </Principal>
+      <Dependent Role="ND_Admin">
+        <PropertyRef Name="ID_TK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__NganhNghe__ID_LV__4BAC3F29">
+    <End Role="LinhVuc" Type="Self.LinhVuc" Multiplicity="0..1" />
+    <End Role="NganhNghe" Type="Self.NganhNghe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LinhVuc">
+        <PropertyRef Name="ID_LV" />
+      </Principal>
+      <Dependent Role="NganhNghe">
+        <PropertyRef Name="ID_LV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__NhaTuyenD__ID_TK__59FA5E80">
+    <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
+    <End Role="NhaTuyenDung" Type="Self.NhaTuyenDung" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaiKhoan">
+        <PropertyRef Name="ID_TK" />
+      </Principal>
+      <Dependent Role="NhaTuyenDung">
+        <PropertyRef Name="ID_TK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__O__ID_DD__74AE54BC">
+    <End Role="DiaDiem" Type="Self.DiaDiem" Multiplicity="1" />
+    <End Role="O" Type="Self.O" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DiaDiem">
+        <PropertyRef Name="ID_DD" />
+      </Principal>
+      <Dependent Role="O">
+        <PropertyRef Name="ID_DD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__O__ID_NTD__75A278F5">
+    <End Role="NhaTuyenDung" Type="Self.NhaTuyenDung" Multiplicity="1" />
+    <End Role="O" Type="Self.O" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhaTuyenDung">
+        <PropertyRef Name="ID_NTD" />
+      </Principal>
+      <Dependent Role="O">
+        <PropertyRef Name="ID_NTD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TaiKhoan__ID_Adm__52593CB8">
+    <End Role="ND_Admin" Type="Self.ND_Admin" Multiplicity="0..1" />
+    <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ND_Admin">
+        <PropertyRef Name="ID_Admin" />
+      </Principal>
+      <Dependent Role="TaiKhoan">
+        <PropertyRef Name="ID_Admin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Thuoc__ID_LV__70DDC3D8">
+    <End Role="LinhVuc" Type="Self.LinhVuc" Multiplicity="1" />
+    <End Role="Thuoc" Type="Self.Thuoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LinhVuc">
+        <PropertyRef Name="ID_LV" />
+      </Principal>
+      <Dependent Role="Thuoc">
+        <PropertyRef Name="ID_LV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Thuoc__ID_NTD__71D1E811">
+    <End Role="NhaTuyenDung" Type="Self.NhaTuyenDung" Multiplicity="1" />
+    <End Role="Thuoc" Type="Self.Thuoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhaTuyenDung">
+        <PropertyRef Name="ID_NTD" />
+      </Principal>
+      <Dependent Role="Thuoc">
+        <PropertyRef Name="ID_NTD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tim__ID_NTD__7E37BEF6">
+    <End Role="NhaTuyenDung" Type="Self.NhaTuyenDung" Multiplicity="1" />
+    <End Role="Tim" Type="Self.Tim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhaTuyenDung">
+        <PropertyRef Name="ID_NTD" />
+      </Principal>
+      <Dependent Role="Tim">
+        <PropertyRef Name="ID_NTD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tim__ID_UV__7D439ABD">
+    <End Role="UngVien" Type="Self.UngVien" Multiplicity="1" />
+    <End Role="Tim" Type="Self.Tim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UngVien">
+        <PropertyRef Name="ID_UV" />
+      </Principal>
+      <Dependent Role="Tim">
+        <PropertyRef Name="ID_UV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TinTuyenD__ID_Ad__6477ECF3">
+    <End Role="ND_Admin" Type="Self.ND_Admin" Multiplicity="0..1" />
+    <End Role="TinTuyenDung" Type="Self.TinTuyenDung" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ND_Admin">
+        <PropertyRef Name="ID_Admin" />
+      </Principal>
+      <Dependent Role="TinTuyenDung">
+        <PropertyRef Name="ID_Admin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TinTuyenD__ID_CV__66603565">
+    <End Role="CongViec" Type="Self.CongViec" Multiplicity="0..1" />
+    <End Role="TinTuyenDung" Type="Self.TinTuyenDung" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CongViec">
+        <PropertyRef Name="ID_CV" />
+      </Principal>
+      <Dependent Role="TinTuyenDung">
+        <PropertyRef Name="ID_CV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TinTuyenD__ID_NT__656C112C">
+    <End Role="NhaTuyenDung" Type="Self.NhaTuyenDung" Multiplicity="0..1" />
+    <End Role="TinTuyenDung" Type="Self.TinTuyenDung" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhaTuyenDung">
+        <PropertyRef Name="ID_NTD" />
+      </Principal>
+      <Dependent Role="TinTuyenDung">
+        <PropertyRef Name="ID_NTD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TinUngTuy__ID_Ad__6B24EA82">
+    <End Role="ND_Admin" Type="Self.ND_Admin" Multiplicity="0..1" />
+    <End Role="TinUngTuyen" Type="Self.TinUngTuyen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ND_Admin">
+        <PropertyRef Name="ID_Admin" />
+      </Principal>
+      <Dependent Role="TinUngTuyen">
+        <PropertyRef Name="ID_Admin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TinUngTuy__ID_DD__6D0D32F4">
+    <End Role="DiaDiem" Type="Self.DiaDiem" Multiplicity="0..1" />
+    <End Role="TinUngTuyen" Type="Self.TinUngTuyen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DiaDiem">
+        <PropertyRef Name="ID_DD" />
+      </Principal>
+      <Dependent Role="TinUngTuyen">
+        <PropertyRef Name="ID_DD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TinUngTuy__ID_LV__6E01572D">
+    <End Role="LinhVuc" Type="Self.LinhVuc" Multiplicity="0..1" />
+    <End Role="TinUngTuyen" Type="Self.TinUngTuyen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LinhVuc">
+        <PropertyRef Name="ID_LV" />
+      </Principal>
+      <Dependent Role="TinUngTuyen">
+        <PropertyRef Name="ID_LV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TinUngTuy__ID_NN__6A30C649">
+    <End Role="NganhNghe" Type="Self.NganhNghe" Multiplicity="0..1" />
+    <End Role="TinUngTuyen" Type="Self.TinUngTuyen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NganhNghe">
+        <PropertyRef Name="ID_NN" />
+      </Principal>
+      <Dependent Role="TinUngTuyen">
+        <PropertyRef Name="ID_NN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TinUngTuy__ID_UV__6C190EBB">
+    <End Role="UngVien" Type="Self.UngVien" Multiplicity="0..1" />
+    <End Role="TinUngTuyen" Type="Self.TinUngTuyen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UngVien">
+        <PropertyRef Name="ID_UV" />
+      </Principal>
+      <Dependent Role="TinUngTuyen">
+        <PropertyRef Name="ID_UV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UngTuyen__ID_CV__797309D9">
+    <End Role="CongViec" Type="Self.CongViec" Multiplicity="1" />
+    <End Role="UngTuyen" Type="Self.UngTuyen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CongViec">
+        <PropertyRef Name="ID_CV" />
+      </Principal>
+      <Dependent Role="UngTuyen">
+        <PropertyRef Name="ID_CV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UngTuyen__ID_UV__7A672E12">
+    <End Role="UngVien" Type="Self.UngVien" Multiplicity="1" />
+    <End Role="UngTuyen" Type="Self.UngTuyen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UngVien">
+        <PropertyRef Name="ID_UV" />
+      </Principal>
+      <Dependent Role="UngTuyen">
+        <PropertyRef Name="ID_UV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UngVien__ID_DD__5629CD9C">
+    <End Role="DiaDiem" Type="Self.DiaDiem" Multiplicity="0..1" />
+    <End Role="UngVien" Type="Self.UngVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DiaDiem">
+        <PropertyRef Name="ID_DD" />
+      </Principal>
+      <Dependent Role="UngVien">
+        <PropertyRef Name="ID_DD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UngVien__ID_TK__571DF1D5">
+    <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
+    <End Role="UngVien" Type="Self.UngVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaiKhoan">
+        <PropertyRef Name="ID_TK" />
+      </Principal>
+      <Dependent Role="UngVien">
+        <PropertyRef Name="ID_TK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLTDModelStoreContainer">
+    <EntitySet Name="CongViec" EntityType="Self.CongViec" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DiaDiem" EntityType="Self.DiaDiem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LinhVuc" EntityType="Self.LinhVuc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ND_Admin" EntityType="Self.ND_Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NganhNghe" EntityType="Self.NganhNghe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NhaTuyenDung" EntityType="Self.NhaTuyenDung" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="O" EntityType="Self.O" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TaiKhoan" EntityType="Self.TaiKhoan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Thuoc" EntityType="Self.Thuoc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tim" EntityType="Self.Tim" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TinTuyenDung" EntityType="Self.TinTuyenDung" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TinUngTuyen" EntityType="Self.TinUngTuyen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UngTuyen" EntityType="Self.UngTuyen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UngVien" EntityType="Self.UngVien" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__CongViec__ID_Adm__5DCAEF64" Association="Self.FK__CongViec__ID_Adm__5DCAEF64">
+      <End Role="ND_Admin" EntitySet="ND_Admin" />
+      <End Role="CongViec" EntitySet="CongViec" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CongViec__ID_DD__5FB337D6" Association="Self.FK__CongViec__ID_DD__5FB337D6">
+      <End Role="DiaDiem" EntitySet="DiaDiem" />
+      <End Role="CongViec" EntitySet="CongViec" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CongViec__ID_LV__60A75C0F" Association="Self.FK__CongViec__ID_LV__60A75C0F">
+      <End Role="LinhVuc" EntitySet="LinhVuc" />
+      <End Role="CongViec" EntitySet="CongViec" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CongViec__ID_NN__5CD6CB2B" Association="Self.FK__CongViec__ID_NN__5CD6CB2B">
+      <End Role="NganhNghe" EntitySet="NganhNghe" />
+      <End Role="CongViec" EntitySet="CongViec" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CongViec__ID_NTD__5EBF139D" Association="Self.FK__CongViec__ID_NTD__5EBF139D">
+      <End Role="NhaTuyenDung" EntitySet="NhaTuyenDung" />
+      <End Role="CongViec" EntitySet="CongViec" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ND_Admin__ID_TK__534D60F1" Association="Self.FK__ND_Admin__ID_TK__534D60F1">
+      <End Role="TaiKhoan" EntitySet="TaiKhoan" />
+      <End Role="ND_Admin" EntitySet="ND_Admin" />
+    </AssociationSet>
+    <AssociationSet Name="FK__NganhNghe__ID_LV__4BAC3F29" Association="Self.FK__NganhNghe__ID_LV__4BAC3F29">
+      <End Role="LinhVuc" EntitySet="LinhVuc" />
+      <End Role="NganhNghe" EntitySet="NganhNghe" />
+    </AssociationSet>
+    <AssociationSet Name="FK__NhaTuyenD__ID_TK__59FA5E80" Association="Self.FK__NhaTuyenD__ID_TK__59FA5E80">
+      <End Role="TaiKhoan" EntitySet="TaiKhoan" />
+      <End Role="NhaTuyenDung" EntitySet="NhaTuyenDung" />
+    </AssociationSet>
+    <AssociationSet Name="FK__O__ID_DD__74AE54BC" Association="Self.FK__O__ID_DD__74AE54BC">
+      <End Role="DiaDiem" EntitySet="DiaDiem" />
+      <End Role="O" EntitySet="O" />
+    </AssociationSet>
+    <AssociationSet Name="FK__O__ID_NTD__75A278F5" Association="Self.FK__O__ID_NTD__75A278F5">
+      <End Role="NhaTuyenDung" EntitySet="NhaTuyenDung" />
+      <End Role="O" EntitySet="O" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TaiKhoan__ID_Adm__52593CB8" Association="Self.FK__TaiKhoan__ID_Adm__52593CB8">
+      <End Role="ND_Admin" EntitySet="ND_Admin" />
+      <End Role="TaiKhoan" EntitySet="TaiKhoan" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Thuoc__ID_LV__70DDC3D8" Association="Self.FK__Thuoc__ID_LV__70DDC3D8">
+      <End Role="LinhVuc" EntitySet="LinhVuc" />
+      <End Role="Thuoc" EntitySet="Thuoc" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Thuoc__ID_NTD__71D1E811" Association="Self.FK__Thuoc__ID_NTD__71D1E811">
+      <End Role="NhaTuyenDung" EntitySet="NhaTuyenDung" />
+      <End Role="Thuoc" EntitySet="Thuoc" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tim__ID_NTD__7E37BEF6" Association="Self.FK__Tim__ID_NTD__7E37BEF6">
+      <End Role="NhaTuyenDung" EntitySet="NhaTuyenDung" />
+      <End Role="Tim" EntitySet="Tim" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tim__ID_UV__7D439ABD" Association="Self.FK__Tim__ID_UV__7D439ABD">
+      <End Role="UngVien" EntitySet="UngVien" />
+      <End Role="Tim" EntitySet="Tim" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TinTuyenD__ID_Ad__6477ECF3" Association="Self.FK__TinTuyenD__ID_Ad__6477ECF3">
+      <End Role="ND_Admin" EntitySet="ND_Admin" />
+      <End Role="TinTuyenDung" EntitySet="TinTuyenDung" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TinTuyenD__ID_CV__66603565" Association="Self.FK__TinTuyenD__ID_CV__66603565">
+      <End Role="CongViec" EntitySet="CongViec" />
+      <End Role="TinTuyenDung" EntitySet="TinTuyenDung" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TinTuyenD__ID_NT__656C112C" Association="Self.FK__TinTuyenD__ID_NT__656C112C">
+      <End Role="NhaTuyenDung" EntitySet="NhaTuyenDung" />
+      <End Role="TinTuyenDung" EntitySet="TinTuyenDung" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TinUngTuy__ID_Ad__6B24EA82" Association="Self.FK__TinUngTuy__ID_Ad__6B24EA82">
+      <End Role="ND_Admin" EntitySet="ND_Admin" />
+      <End Role="TinUngTuyen" EntitySet="TinUngTuyen" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TinUngTuy__ID_DD__6D0D32F4" Association="Self.FK__TinUngTuy__ID_DD__6D0D32F4">
+      <End Role="DiaDiem" EntitySet="DiaDiem" />
+      <End Role="TinUngTuyen" EntitySet="TinUngTuyen" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TinUngTuy__ID_LV__6E01572D" Association="Self.FK__TinUngTuy__ID_LV__6E01572D">
+      <End Role="LinhVuc" EntitySet="LinhVuc" />
+      <End Role="TinUngTuyen" EntitySet="TinUngTuyen" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TinUngTuy__ID_NN__6A30C649" Association="Self.FK__TinUngTuy__ID_NN__6A30C649">
+      <End Role="NganhNghe" EntitySet="NganhNghe" />
+      <End Role="TinUngTuyen" EntitySet="TinUngTuyen" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TinUngTuy__ID_UV__6C190EBB" Association="Self.FK__TinUngTuy__ID_UV__6C190EBB">
+      <End Role="UngVien" EntitySet="UngVien" />
+      <End Role="TinUngTuyen" EntitySet="TinUngTuyen" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UngTuyen__ID_CV__797309D9" Association="Self.FK__UngTuyen__ID_CV__797309D9">
+      <End Role="CongViec" EntitySet="CongViec" />
+      <End Role="UngTuyen" EntitySet="UngTuyen" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UngTuyen__ID_UV__7A672E12" Association="Self.FK__UngTuyen__ID_UV__7A672E12">
+      <End Role="UngVien" EntitySet="UngVien" />
+      <End Role="UngTuyen" EntitySet="UngTuyen" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UngVien__ID_DD__5629CD9C" Association="Self.FK__UngVien__ID_DD__5629CD9C">
+      <End Role="DiaDiem" EntitySet="DiaDiem" />
+      <End Role="UngVien" EntitySet="UngVien" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UngVien__ID_TK__571DF1D5" Association="Self.FK__UngVien__ID_TK__571DF1D5">
+      <End Role="TaiKhoan" EntitySet="TaiKhoan" />
+      <End Role="UngVien" EntitySet="UngVien" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

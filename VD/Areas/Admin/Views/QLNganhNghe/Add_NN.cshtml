@@ -1,0 +1,81 @@
+﻿@model VD.Models.NganhNghe
+@{
+    ViewBag.Title = "Add_NN";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section naviheader {
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/admin/home" class="nav-link">Trang chủ</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/admin/QLNganhNghe/Home_NN" class="nav-link">Quản lý ngành nghề</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="#" class="nav-link">Thêm mới</a>
+        </li>
+    </ul>
+}
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Thêm mới ngành nghề</h1>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Thông tin thêm mới ngành nghề</h3>
+        </div>
+        <div class="card-body">
+            <div class="bs-stepper-content">
+                @using (Html.BeginForm("Add_NN", "QLNganhNghe", FormMethod.Post))
+                {
+                    <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
+                        <div class="form-group">
+                            <label for="TenNN">Tên ngành nghề</label>
+                            <input type="text" class="form-control" id="TenNN" name="TenNN" placeholder="ngành nghề" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="MoTaNN">Mô tả</label>
+                            <input type="text" class="form-control" id="MoTaNN" name="MoTaNN" placeholder="Mô tả">
+                        </div>
+                        <div class="form-group">
+                            <label for="ID_LV">Lĩnh vực</label>
+                            <select class="form-control" id="ID_LV" name="ID_LV" required>
+                                <option value="">Chọn lĩnh vực</option>
+                                @foreach (var lv in ViewBag.LinhVucs)
+                                {
+                                    <option value="@lv.ID_LV">@lv.TenLV</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <a href="/Admin/QlNganhNghe/Home_NN" class="btn btn-danger">Quay lại</a>
+                            <button type="submit" class="btn btn-primary">Thêm mới</button>
+                        </div>
+                    </div>
+                }
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+
+            </div>
+            <!-- /.card-footer-->
+        </div>
+        <!-- /.card -->
+
+</section>
+<!-- /.content -->

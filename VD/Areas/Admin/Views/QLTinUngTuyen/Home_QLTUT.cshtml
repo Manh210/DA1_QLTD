@@ -1,0 +1,134 @@
+﻿@model List<VD.Models.TinUngTuyen>
+@{
+    ViewBag.Title = "Quản lý tin ứng tuyển";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section naviheader{
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/admin/home" class="nav-link">Trang chủ</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/admin/QLTinUngTuyen/Home_QLTUT" class="nav-link">@ViewBag.Title</a>
+        </li>
+    </ul>
+}
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>@ViewBag.Title</h1>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header">
+            <form method="get" action="@Url.Action("Home_QLTUT", "QLTinUngTuyen")">
+                <div class="input-group mb-3">
+                    <input type="text" name="timTUT" class="form-control" placeholder="Tìm kiếm tin ứng tuyển" value="@Request.QueryString["timTUT"]">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+                    </div>
+                </div>
+            </form>
+            <h3 class="card-title">Danh sách tin ứng tuyển</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Họ và tên</th>
+                        <th>Thời gian đăng</th>
+                        <th>Trạng thái</th>
+                        <th>Thời gian cập nhật trạng thái</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        var i = 1;
+                        foreach (var tinUngTuyen in Model)
+                        {
+                            <tr id="trow_@tinUngTuyen.ID_TUT">
+                                <td>@i</td>
+                                <td>@tinUngTuyen.HoTen</td>
+                                <td>@tinUngTuyen.TgDang</td>
+                                <td>@tinUngTuyen.TrangThaiTUT</td>
+                                @*<td>
+                                        <select class="form-control status-dropdown" data-id="@tinTuyenDung.ID_TUT">
+                                            <option value="Chờ xác nhận" @(tinTuyenDung.TrangThaiTTD == "Chờ xác nhận" ? "selected" : "")>Chờ xác nhận</option>
+                                            <option value="Xác nhận" @(tinTuyenDung.TrangThaiTTD == "Xác nhận" ? "selected" : "")>Xác nhận</option>
+                                            <option value="Từ chối" @(tinTuyenDung.TrangThaiTTD == "Từ chối" ? "selected" : "")>Từ chối</option>
+                                        </select>
+                                    </td>*@
+                                <td>@tinUngTuyen.TgianCapNhatTT</td>
+                                <td>
+                                    <a href="/admin/QLTinUngTuyen/edit_TT/@tinUngTuyen.ID_TUT" class="btn btn-sm btn-primary">Sửa</a>
+                                    @*<a href="#" data-id="@tinUngTuyen.ID_TUT" class="btn btn-sm btn-danger btnDelete">Xóa</a>*@
+                                    <a href="/admin/QLTinUngTuyen/delete/@tinUngTuyen.ID_TUT" class="btn btn-sm btn-danger">Xóa</a>
+                                </td>
+                            </tr>
+                            i++;
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="3">Không có dữ liệu.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+
+        </div>
+        <!-- /.card-footer-->
+    </div>
+    <!-- /.card -->
+
+</section>
+<!-- /.content -->
+
+@*<script>
+    $(document).ready(function() {
+        $('.status-dropdown').change(function() {
+            var status = $(this).val();
+            var id = $(this).data('id');
+
+            $.ajax({
+                url: '@Url.Action("UpdateStatus", "QLTinUngTuyen")',
+                type: 'POST',
+                data: {
+                    id: id,
+                    status: status
+                },
+                success: function(response) {
+                    if (response.success) {
+                        alert('Cập nhật trạng thái thành công!');
+                    } else {
+                        alert('Có lỗi xảy ra, vui lòng thử lại!');
+                    }
+                },
+                error: function() {
+                    alert('Có lỗi xảy ra, vui lòng thử lại!');
+                }
+            });
+        });
+    });
+</script>*@
+

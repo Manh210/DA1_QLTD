@@ -1,0 +1,111 @@
+﻿<!-- Sidebar -->
+<div class="sidebar">
+    <!-- Sidebar user (optional) -->
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        @*<div class="image">
+            <img src="~/Content/Clients/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        </div>*@
+        <div class="info">
+                <a href="#" class="d-block">Admin</a>
+        </div>
+    </div>
+
+    <!-- SidebarSearch Form -->
+    @*<div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+            <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+            <div class="input-group-append">
+                <button class="btn btn-sidebar">
+                    <i class="fas fa-search fa-fw"></i>
+                </button>
+            </div>
+        </div>
+    </div>*@
+
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+         with font-awesome or any other icon font library -->
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>
+                        Quản lý tài khoản
+                        <i class="right fas fa-angle-left"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        @*<a href="/Admin/TK_UngVien" class="nav-link">*@
+                        <a href="/Admin/TK_UngVien" class="nav-link @(ViewContext.RouteData.Values["controller"].ToString() == "TK_UngVien" ? "active" : "")">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Tài khoản ứng viên</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/Admin/TK_NhaTuyenDung" class="nav-link @(ViewContext.RouteData.Values["controller"].ToString() == "TK_NhaTuyenDung" ? "active" : "")">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Tài khoản nhà tuyển dụng</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="/admin/QLTin" class="nav-link">
+                    <i class="nav-icon fas fa-copy"></i>
+                    <p>
+                        Quản lý tin
+                        <i class="fas fa-angle-left right"></i>
+                        @*<span class="badge badge-info right">6</span>*@
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="~/Admin/QLTinUngTuyen/Home_QLTUT" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Tin ứng tuyển</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="~/Admin/QLTinTuyenDung/Home_QLTTD" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Tin tuyển dụng</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="/admin/QLNganhNghe/Home_NN" class="nav-link @(ViewContext.RouteData.Values["controller"].ToString() == "QLNganhNghe" ? "active" : "")">
+                    <i class="nav-icon fas fa-chart-pie"></i>
+                    <p>
+                        Quản lý ngành nghề
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/admin/QLLinhVuc/Home_LinhVuc" class="nav-link @(ViewContext.RouteData.Values["controller"].ToString() == "QLLinhVuc" ? "active" : "")">
+                    <i class="nav-icon fas fa-tree"></i>
+                    <p>
+                        Quản lý lĩnh vực
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/admin/QLDiaDiem/index" class="nav-link @(ViewContext.RouteData.Values["controller"].ToString() == "QLDiaDiem" ? "active" : "")">
+                    <i class="nav-icon fas fa-edit"></i>
+                    <p>
+                        Quản lý địa điểm
+                    </p>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- /.sidebar-menu -->
+</div>
+<!-- /.sidebar -->
+
+
+
+
+

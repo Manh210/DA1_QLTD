@@ -1,0 +1,125 @@
+﻿@model List<VD.Models.NganhNghe>
+@{
+    ViewBag.Title = "Home_NN";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section naviheader{
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/admin/home" class="nav-link">Trang chủ</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/admin/QLNganhNghe/Home_NN" class="nav-link">Quản lý ngành nghề</a>
+        </li>
+    </ul>
+}
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Quản lý ngành nghề</h1>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header">
+            <form method="get" action="@Url.Action("Home_NN", "QLNganhNghe")">
+                <div class="input-group mb-3">
+                    <input type="text" name="timNN" class="form-control" placeholder="Tìm kiếm ngành nghề" value="@Request.QueryString["timNN"]">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+                    </div>
+                </div>
+            </form>
+            <h3 class="card-title">Danh sách ngành nghề</h3>
+
+            <div class="card-tools">
+                <a href="/admin/QLNganhNghe/add_NN" class="btn btn-primary">Thêm mới</a>
+            </div>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Tên ngành nghề</th>
+                        <th>Mô tả</th>
+                        <th>Lĩnh vực</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        var i = 1;
+                        foreach (var nganhNghe in Model)
+                        {
+                            <tr id="trow_@nganhNghe.ID_NN">
+                                <td>@i</td>
+                                <td>@nganhNghe.TenNN</td>
+                                <td>@nganhNghe.MoTaNN</td>
+                                <td>@nganhNghe.LinhVuc.TenLV</td>
+                                <td>
+                                    <a href="/admin/QLNganhNghe/edit_NN/@nganhNghe.ID_NN" class="btn btn-sm btn-primary">Sửa</a>
+                                    @*<a href="#" data-id="@nganhNghe.ID_NN" class="btn btn-sm btn-danger btnDelete">Xóa</a>*@
+                                    <a href="/admin/QLNganhNghe/delete/@nganhNghe.ID_NN" class="btn btn-sm btn-primary">Xóa</a>
+                                </td>
+                            </tr>
+                            i++;
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="3">Không có dữ liệu.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+
+        </div>
+        <!-- /.card-footer-->
+    </div>
+    <!-- /.card -->
+
+</section>
+<!-- /.content -->
+
+@*@section scripts
+    {
+    <script>
+            $(document).ready(function () {
+                $('body').on('click', '.btnDelete', function () {
+                    var id = $(this).data("id")
+                    var conf = confirm('Bạn có muốn xóa bản ghi này không?');
+                    if (conf == true) {
+                        $.ajax({
+                            url: '/Admin/QLNganhNghe/Delete_NN',
+                            type: 'POST',
+                            data: { id: id },
+                            success: function (rs) {
+                                if (rs.success) {
+                                    $('#trow_' + id).remove();
+                                }
+                            }
+                        });
+                    }
+                });
+            });
+    </script>
+}*@
+

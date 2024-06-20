@@ -1,0 +1,81 @@
+﻿@model VD.Models.NhaTuyenDung
+@{
+    ViewBag.Title = "ChiTietTK_NTD";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section naviheader{
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/admin/home" class="nav-link">Trang chủ</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/admin/TK_NhaTuyenDung" class="nav-link">Quản lý tài khoản nhà tuyển dụng</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="#" class="nav-link">Chi tiết</a>
+        </li>
+    </ul>
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Chi tiết</h1>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+
+<!-- Main content -->
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Thông tin nhà tuyển dụng</h3>
+        </div>
+        <div class="card-body">
+            <div class="bs-stepper-content">
+                <!-- your steps content here -->
+                <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">ID nhà tuyển dụng</label>
+                        <input class="form-control" id="ID_UV" name="ID_UV" type="text" value="@Model.ID_NTD">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Tên</label>
+                        <input class="form-control" id="HoTen" name="HoTen" type="text" value="@Model.TenNTD">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Quốc gia</label>
+                        <input class="form-control" id="SDT" name="SDT" type="text" value="@Model.QuocGia">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Quy mô</label>
+                        <input class="form-control" id="DOB" name="DOB" type="text" value="@Model.QuyMo">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Số giấy phép kinh doanh</label>
+                        <input class="form-control" id="GioiTinh" name="GioiTinh" type="text" value="@Model.GPKD">
+                    </div>
+                    <div class="form-group">
+                        <a href="/Admin/TK_NhaTuyenDung" class="btn btn-danger">Quay lại</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+
+            </div>
+            <!-- /.card-footer-->
+        </div>
+        <!-- /.card -->
+
+</section>
+<!-- /.content -->

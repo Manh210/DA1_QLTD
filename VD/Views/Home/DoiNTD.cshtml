@@ -1,0 +1,64 @@
+﻿@model VD.Models.NhaTuyenDung
+
+@{
+    ViewBag.Title = "DoiNTD";
+    Layout = "~/Views/Shared/_MainPage.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đổi thông tin nhà tuyển dụng | Wavefire Coding</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/styles/style.css">
+    <style>
+        /* Your custom CSS styles here */
+
+        .box-container {
+            margin-left: 400px; /* Căn lề trái */
+            margin-right: 400px; /* Căn lề phải */
+            padding-top: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-wrap">
+        <div class="box-container ">
+            <h2 class="text-center mb-4">Đổi thông tin nhà tuyển dụng</h2>
+            <form action="~/Home/DoiNTD" method="post" enctype="multipart/form-data">
+                @Html.HiddenFor(model => model.ID_NTD)
+                <div class="form-group">
+                    <label for="TenNTD">Tên nhà tuyển dụng:</label>
+                    <input type="text" class="form-control" id="TenNTD" name="TenNTD" value="@Model.TenNTD" required>
+                </div>
+                <div class="form-group">
+                    <label for="QuocGia">Quốc gia:</label>
+                    <input type="text" class="form-control" id="QuocGia" name="QuocGia" value="@Model.QuocGia" required>
+                </div>
+                <div class="form-group">
+                    <label for="QuyMo">Quy mô:</label>
+                    <input type="text" class="form-control" id="QuyMo" name="QuyMo" value="@Model.QuyMo" required>
+                </div>
+                <div class="form-group">
+                    <label for="GPKD">Số giấy phép kinh doanh:</label>
+                    <input type="text" class="form-control" id="GPKD" name="GPKD" value="@Model.GPKD" required>
+                </div>
+                @*<div class="form-group">
+                    <label for="ID_TK">ID tài khoản:</label>
+                    <input type="text" class="form-control" id="ID_TK" name="ID_TK" value="@Model.ID_TK" required>
+                </div>
+                <div class="form-group">*@
+                    <button type="submit" class="btn btn-primary btn-block">Xác nhận</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+

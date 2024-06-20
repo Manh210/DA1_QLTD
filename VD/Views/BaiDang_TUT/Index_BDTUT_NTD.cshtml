@@ -1,0 +1,161 @@
+﻿@model List<VD.Models.TinUngTuyen>
+@{
+    ViewBag.Title = "Tin ứng tuyển";
+    Layout = "~/Views/Shared/_MainPageNTD.cshtml";
+}
+
+<link type="text/css" href="~/Content/assets/styles/main_styles.css" rel="stylesheet" />
+@*<style>
+    .news_section_container {
+        margin-top: 180px;
+    }
+
+    .row-item-new {
+        margin-bottom: 20px;
+    }
+
+    .title-news {
+        font-size: 24px;
+        border-bottom: 1px solid;
+        padding: 15px 0;
+        margin-bottom: 25px;
+    }
+
+    .img-box img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+</style>*@
+<style>
+
+    body {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        font-family: 'Arial', sans-serif;
+        color: #333;
+    }
+
+    .content-header {
+        background: transparent;
+        color: white;
+        padding: 20px 0;
+        margin-bottom: 30px;
+    }
+
+        .content-header h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+    .card {
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        background: white;
+        padding: 20px;
+        margin-top: 200px;
+    }
+
+    .news_section_container {
+        margin-top: 20px;
+    }
+
+    .title-news {
+        font-size: 1.5rem;
+        border-bottom: 2px solid #6a11cb;
+        padding: 10px 0;
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+
+    .btn-primary {
+        background-color: #6a11cb;
+        border-color: #6a11cb;
+        transition: background-color 0.3s, border-color 0.3s;
+    }
+
+        .btn-primary:hover {
+            background-color: #2575fc;
+            border-color: #2575fc;
+        }
+
+    .table th, .table td {
+        vertical-align: middle;
+    }
+
+    .table th {
+        background-color: #f8f9fa;
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: rgba(106, 17, 203, 0.1);
+    }
+
+    .input-group {
+        max-width: 500px;
+        margin: 0 auto 20px;
+    }
+
+        .input-group .form-control {
+            border-radius: 0.375rem 0 0 0.375rem;
+        }
+
+        .input-group .input-group-append .btn {
+            border-radius: 0 0.375rem 0.375rem 0;
+        }
+
+    .table td:last-child .btn {
+        margin-right: 5px;
+    }
+</style>
+<section class="content">
+    <div class="container news_section_container">
+        <div class="card">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="title-news">@ViewBag.Title</h1>
+                    <form method="get" action="@Url.Action("Index_BDTUT_NTD", "BaiDang_TUT")">
+                        <div class="input-group mb-3">
+                            <input type="text" name="timTUT" class="form-control" placeholder="Tìm kiếm" value="@Request.QueryString["timTUT"]">
+                            <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+                        </div>
+                        <div class="input-group mb-3">
+                            @Html.DropDownList("id_DD", new SelectList(ViewBag.DiaDiems, "ID_DD", "TenDD"), "Chọn địa điểm", new { @class = "form-control" })
+                            @Html.DropDownList("id_NN", new SelectList(ViewBag.NganhNghes, "ID_NN", "TenNN"), "Chọn ngành nghề", new { @class = "form-control" })
+                            @Html.DropDownList("id_LV", new SelectList(ViewBag.LinhVucs, "ID_LV", "TenLV"), "Chọn lĩnh vực", new { @class = "form-control" })
+                            @*<select id="loaiViec" name="loaiViec" class="form-control">
+                                <option value="">Loại việc</option>
+                                <option value="Part time">Part time</option>
+                                <option value="Full time">Full time</option>
+                            </select>*@
+                        </div>
+                    </form>
+                </div>
+            </div>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var tinUngTuyen in Model.Where(tut => tut.TrangThaiTUT == "Xác nhận"))
+                {
+                    <div class="row row-item-new">
+                        <div class="col-md-2">
+                            <div class="img-box">
+                                <a href="" title="@tinUngTuyen.HoTen"><img src="@tinUngTuyen.UngVien.AnhDD" alt="@tinUngTuyen.HoTen" style="height:100px" /></a>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="content-box">
+                                <h3><a href="/BaiDang_TUT/ChiTietBDTUT_NTD/@tinUngTuyen.ID_TUT" title="@tinUngTuyen.HoTen">@tinUngTuyen.HoTen</a></h3>
+                                <div class="description-box">
+                                    @tinUngTuyen.LinhVuc.TenLV
+                                </div>
+                                <div class="description-box">
+                                    @tinUngTuyen.NganhNghe.TenNN
+                                </div>
+                                <div class="description-box">
+                                    @tinUngTuyen.TgDang
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+</section>

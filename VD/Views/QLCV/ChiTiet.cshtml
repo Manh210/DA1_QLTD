@@ -1,0 +1,219 @@
+﻿@model VD.Models.UngTuyen
+@{
+    ViewBag.Title = "ChiTiet";
+    Layout = "~/Views/Shared/_MainPageNTD.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+@*<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin ứng viên | Wavefire Coding</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/styles/style.css">
+    <style>
+        /* Your custom CSS styles here */
+
+        .box-container {
+            margin-left: 400px; /* Căn lề trái */
+            margin-right: 400px; /* Căn lề phải */
+            padding-top: 200px;
+        }
+        body {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            font-family: Arial, sans-serif;
+        }
+
+        .main-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .box-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+
+            .box-container h2 {
+                font-size: 1.75rem;
+                margin-bottom: 20px;
+                color: #333;
+                text-align: center;
+            }
+
+        .form-group label {
+            font-weight: 600;
+        }
+
+        .form-control {
+            border-radius: 5px;
+        }
+
+        .btn-primary, .btn-danger {
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 1rem;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #5a67d8;
+            border: none;
+        }
+
+            .btn-primary:hover {
+                background-color: #434190;
+            }
+
+        .btn-danger {
+            background-color: #e53e3e;
+            border: none;
+            margin-top: 10px;
+        }
+
+            .btn-danger:hover {
+                background-color: #c53030;
+            }
+    </style>
+</head>*@
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Thông tin ứng viên | Wavefire Coding</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+
+        body {
+            background: linear-gradient(to right, #6a11cb82, #2575fc);
+            font-family: Arial, sans-serif;
+        }
+
+        .main-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .box-container {
+            background-color: #fff;
+            padding: 30px;
+            margin-top: 200px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+
+            .box-container h2 {
+                font-size: 1.75rem;
+                margin-bottom: 20px;
+                color: #333;
+                text-align: center;
+            }
+
+        .form-group label {
+            font-weight: 600;
+        }
+
+        .form-control {
+            border-radius: 5px;
+        }
+
+        .btn-primary, .btn-danger {
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 1rem;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #5a67d8;
+            border: none;
+        }
+
+            .btn-primary:hover {
+                background-color: #434190;
+            }
+
+        .btn-danger {
+            background-color: #e53e3e;
+            border: none;
+            margin-top: 10px;
+        }
+
+            .btn-danger:hover {
+                background-color: #c53030;
+            }
+    </style>
+
+</head>
+<!-- Main content -->
+<body>
+    <div class="main-wrap">
+        <div class="box-container ">
+            <h2 class="text-center mb-4">Thông tin ứng viên</h2>
+            <div class="form-group">
+                <label for="HoTen">Họ và tên</label>
+                <input class="form-control" id="HoTen" name="HoTen" type="text" value="@Model.UngVien.HoTen">
+            </div>
+            <div class="form-group">
+                <label for="SDT">Số điện thoại</label>
+                <input class="form-control" id="SDT" name="SDT" type="text" value="@Model.UngVien.SDT">
+            </div>
+            <div class="form-group">
+                <label for="DOB">Ngày sinh</label>
+                <input class="form-control" id="DOB" name="DOB" type="text" value="@Model.UngVien.DOB">
+            </div>
+            <div class="form-group">
+                <label for="GioiTinh">Giới tính</label>
+                <input class="form-control" id="GioiTinh" name="GioiTinh" type="text" value="@Model.UngVien.GioiTinh">
+            </div>
+            <div class="form-group">
+                <label for="Email">Email</label>
+                <input class="form-control" id="Email" name="Email" type="email" value="@Model.UngVien.Email">
+            </div>
+            <div class="form-group">
+                <label for="CV">CV</label>
+                <input class="form-control" id="CV" name="CV" type="text" value="@Model.UngVien.CV">
+            </div>
+            <div class="form-group">
+                <label for="SYLL">Sơ yếu lý lịch</label>
+                <input class="form-control" id="SYLL" name="SYLL" type="text" value="@Model.UngVien.SYLL">
+            </div>
+            <div class="form-group">
+                <label for="SYLL">Ảnh đại diện</label>
+                <img src="@Model.UngVien.AnhDD" style="height:100px;width:100px" />
+            </div>
+            <div class="form-group">
+                <label for="DiaDiem">Địa điểm</label>
+                <input class="form-control" id="DiaDiem" name="DiaDiem" type="text" value="@Model.UngVien.DiaDiem.TenDD">
+            </div>
+            <div class="form-group">
+                <a href="/QLCV/ListUV/@Model.ID_CV" class="btn btn-primary btn-block">Quay lại</a>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+<!-- /.content -->
+</html>
+

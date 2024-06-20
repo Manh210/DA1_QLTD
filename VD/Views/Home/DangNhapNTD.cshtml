@@ -1,0 +1,80 @@
+﻿@model VD.Models.TaiKhoan
+@{
+    ViewBag.Title = "DangNhapNTD";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập cho nhà tuyển dụng | Wavefire Coding</title>
+    <link rel="stylesheet" href="~/Content/css/style.css">
+    <style>
+        h1 {
+            font-size: 36px;
+        }
+        .form-wrap .top-signup {
+            text-align: right;
+            padding-top: 20px;
+            font-size: 13px;
+            font-weight: 400;
+            color: rgb(155, 152, 152);
+        }
+
+        .form-wrap .mid-container {
+            padding-top: 20px;
+            padding-left: 40px;
+        }
+
+        .login-with {
+            padding: 20px 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-wrap">
+        <div class="box-container">
+            <div class="img-box">
+
+            </div>
+            <div class="form-wrap">
+                <div class="top-signup">
+                    <span>Bạn chưa có tài khoản?</span>
+                    <a href="~/Home/DangKyNTD" class="signup-btn">ĐĂNG KÝ</a>
+                </div>
+                <div class="mid-container">
+                    <h1>Chào mừng</h1>
+                    <h6>Đăng nhập tài khoản nhà tuyển dụng</h6>
+                    <form action="/Home/DangNhapNTD" class="form" method="post">
+                        @Html.AntiForgeryToken()
+                        <label for="TenDN">Tên đăng nhập</label></br>
+                        <input type="text" name="TenDN" id="TenDN" placeholder="Nhập tên đăng nhập của bạn">
+                        @*@Html.ValidationMessageFor(model => model.TenDN, null, new { @class = "text-danger" })*@
+                        </br></br>
+                        <label for="MK">Mật khẩu</label></br>
+                        <input type="password" name="MK" id="MK" placeholder="Nhập mật khẩu">
+                        @*@Html.ValidationMessageFor(model => model.MK, null, new { @class = "text-danger" })*@
+                        <br>
+                        <span><a href="#" class="fg-pass">Quên mật khẩu?</a></span>
+                        <br>
+                        <button type="submit" class="login-btn">Đăng nhập</button>
+                        @ViewBag.LoginFail
+                        @*@Html.ValidationSummary(false, "Tên đăng nhập hoặc mật khẩu chưa chính xác!", new { @class = "text-danger" })*@
+                    </form>
+                </div>
+                <div class="login-with">
+                    <span>Đăng nhập bằng</span>
+                    <a href="https://facebook.com/"><img src="~/Content/images/fb.png" alt=""></a>
+                    <a href=""><img src="~/Content/images/google.png" alt=""></a>
+                    <a href="https://twitter.com/"><img src="~/Content/images/twitter.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

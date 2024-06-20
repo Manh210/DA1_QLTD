@@ -1,0 +1,175 @@
+﻿@model VD.Models.TinTuyenDung
+@{
+    ViewBag.Title = "Chỉnh sửa tin tuyển dụng";
+    Layout = "~/Views/Shared/_MainPageNTD.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cập nhật thông tin công việc | Wavefire Coding</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/styles/style.css">
+    @*<style>
+            /* Your custom CSS styles here */
+
+            .box-container {
+                margin-left: 400px; /* Căn lề trái */
+                margin-right: 400px; /* Căn lề phải */
+                padding-top: 200px;
+            }
+        </style>*@
+    <style>
+
+        body {
+            background: linear-gradient(to right, #6a11cb82, #2575fc);
+            font-family: Arial, sans-serif;
+        }
+
+        .main-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .box-container {
+            background-color: #fff;
+            padding: 30px;
+            margin-top: 200px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+
+            .box-container h2 {
+                font-size: 1.75rem;
+                margin-bottom: 20px;
+                color: #333;
+                text-align: center;
+            }
+
+        .form-group label {
+            font-weight: 600;
+        }
+
+        .form-control {
+            border-radius: 5px;
+        }
+
+        .btn-primary, .btn-danger {
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 1rem;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #5a67d8;
+            border: none;
+        }
+
+            .btn-primary:hover {
+                background-color: #434190;
+            }
+
+        .btn-danger {
+            background-color: #e53e3e;
+            border: none;
+            margin-top: 10px;
+        }
+
+            .btn-danger:hover {
+                background-color: #c53030;
+            }
+    </style>
+</head>
+
+<!-- Main content -->
+<body>
+    <div class="main-wrap">
+        <div class="box-container ">
+            <h2 class="text-center mb-4">@ViewBag.Title</h2>
+            @using (Html.BeginForm("Edit_TTD", "TinTuyenDung", FormMethod.Post))
+            {
+                @Html.HiddenFor(model => model.ID_TTD)
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Tiêu đề</label>
+                    <input type="text" class="form-control" id="TieuDe" name="TieuDe" value="@Model.TieuDe" required>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Yêu cầu</label>
+                    <input type="text" class="form-control" id="YeuCau" name="YeuCau" value="@Model.YeuCau">
+                </div>
+                <div class="form-group">
+                    <label for="TgLam">Thời gian làm</label>
+                    <input type="text" class="form-control" id="TgLam" name="TgLam" value="@Model.TgLam">
+                </div>
+                <div class="form-group">
+                    <label for="HanUT">Hạn ứng tuyển</label>
+                    <input type="date" class="form-control" id="HanUT" name="HanUT" value="@Model.HanUT">
+                </div>
+                <div class="form-group">
+                    <label for="SoLuongTD">Số lượng tuyển dụng</label>
+                    <input type="text" class="form-control" id="SoLuongTD" name="SoLuongTD" value="@Model.SoLuongTD">
+                </div>
+                <div class="form-group">
+                    <label for="PhucLoi">Phúc lợi</label>
+                    <input type="text" class="form-control" id="PhucLoi" name="PhucLoi" value="@Model.PhucLoi">
+                </div>
+                <div class="form-group">
+                    <label for="MucLuong">Mức lương</label>
+                    <input type="text" class="form-control" id="MucLuong" name="MucLuong" value="@Model.MucLuong">
+                </div>
+                <div class="form-group">
+                    <label for="CapBac">Cấp bậc</label>
+                    <input type="text" class="form-control" id="CapBac" name="CapBac" value="@Model.CapBac">
+                </div>
+                @*<div class="form-group">
+                    <label for="TrangThaiTTD">Trạng thái</label>
+                    <select class="form-control" id="TrangThaiTTD" name="TrangThaiTTD">
+                        <option value="@Model.TrangThaiTTD">@Model.TrangThaiTTD</option>
+                        <option value="Chờ xác nhận">Chờ xác nhận</option>
+                        <option value="Xác nhận">Xác nhận</option>
+                        <option value="Từ chối">Từ chối</option>
+                    </select>
+                </div>*@
+                <div class="form-group">
+                    <label for="ID_CV">Công việc</label>
+                    <select class="form-control" id="ID_CV" name="ID_CV" required>
+                        <option value="">Chọn công việc</option>
+                        @foreach (var cv in ViewBag.CongViecs)
+                        {
+                            <option value="@cv.ID_CV" @Html.Raw(cv.ID_CV == Model.ID_CV ? "selected" : "")>@cv.TenCV</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="ID_NTD">Nhà tuyển dụng</label>
+                    <select class="form-control" id="ID_NTD" name="ID_NTD" required>
+                        <option value="">Chọn nhà tuyển dụng</option>
+                        @foreach (var lv in ViewBag.NhaTuyenDungs)
+                        {
+                            <option value="@lv.ID_NTD" @Html.Raw(lv.ID_NTD == Model.ID_NTD ? "selected" : "")>@lv.TenNTD</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">Cập nhật</button>
+                    @{ var taiKhoan = Session["TaiKhoan"] as VD.Models.TaiKhoan;}
+                    <a href="/TinTuyenDung/Index_TTD/@taiKhoan.ID_TK" class="btn btn-danger btn-block">Quay lại</a>
+                </div>
+            }
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+<!-- /.content -->
+</html>
+

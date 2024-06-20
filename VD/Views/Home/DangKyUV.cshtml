@@ -1,0 +1,110 @@
+﻿@model VD.Models.UngVien
+@{
+    ViewBag.Title = "DangKyUV";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký ứng viên | Wavefire Coding</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/styles/style.css">
+    <style>
+        /* Your custom CSS styles here */
+
+        .box-container {
+            margin-left: 400px; /* Căn lề trái */
+            margin-right: 400px; /* Căn lề phải */
+            padding-top: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-wrap">
+        <div class="box-container ">
+            <h2 class="text-center mb-4">Đăng ký ứng viên</h2>
+            <form action="~/Home/DangKyUV" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.TaiKhoan.TenDN, "Tên đăng nhập:")
+                    @Html.TextBox("tenDangNhap", null, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.TaiKhoan.MK, "Mật khẩu:")
+                    @Html.Password("matKhau", null, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label for="fullname">Họ và tên:</label>
+                    <input type="text" class="form-control" id="HoTen" name="HoTen" required>
+                    @*@Html.LabelFor(model => model.HoTen)
+            @Html.TextBoxFor(model => model.HoTen, new { @class = "form-control" })*@
+                </div>
+                <div class="form-group">
+                    <label for="dob">Ngày tháng năm sinh:</label>
+                    <input type="date" class="form-control" id="DOB" name="DOB" required>
+                    @*@Html.LabelFor(model => model.DOB)
+            @Html.TextBoxFor(model => model.DOB, new { @class = "form-control" })*@
+                </div>
+                <div class="form-group">
+                    <label for="gender">Giới tính:</label>
+                    <select class="form-control" id="GioiTinh" name="GioiTinh" required>
+                        <option value="">Chọn giới tính</option>
+                        <option value="Nam">Nam</option>
+                        <option value="Nữ">Nữ</option>
+                    </select>
+                    @*@Html.LabelFor(model => model.GioiTinh)
+            @Html.TextBoxFor(model => model.GioiTinh, new { @class = "form-control" })*@
+                </div>
+                <div class="form-group">
+                    <label for="phone">Số điện thoại:</label>
+                    <input type="tel" class="form-control" id="SDT" name="SDT" required>
+                    @*@Html.LabelFor(model => model.SDT)
+            @Html.TextBoxFor(model => model.SDT, new { @class = "form-control" })*@
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="Email" name="Email" required>
+                    @*@Html.LabelFor(model => model.Email)
+            @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })*@
+                </div>
+                <div class="form-group">
+                    <label for="cv">CV:</label>
+                    <input type="file" class="form-control-file" id="cv" name="cv" accept=".pdf,.doc,.docx" @*required*@>
+                    @*@Html.LabelFor(model => model.CV)
+            @Html.TextBoxFor(model => model.CV, new { @class = "form-control" })*@
+                </div>
+                <div class="form-group">
+                    <label for="syll">Sơ yếu lý lịch:</label>
+                    <input type="file" class="form-control-file" id="syll" name="syll" accept=".pdf,.doc,.docx" @*required*@>
+                    @*@Html.LabelFor(model => model.SYLL)
+            @Html.TextBoxFor(model => model.SYLL, new { @class = "form-control" })*@
+                </div>
+                <div class="form-group">
+                    <label for="imageUV">Ảnh đại diện:</label>
+                    <input type="file" class="form-control-file" id="imageUV" name="imageUV" accept=".jpg" required>
+                </div>
+                <div class="form-group">
+                    <label for="ID_DD">Địa điểm</label>
+                    <select class="form-control" id="ID_DD" name="ID_DD" required>
+                        <option value="">Chọn địa điểm</option>
+                        @foreach (var dd in ViewBag.DiaDiems)
+                        {
+                            <option value="@dd.ID_DD">@dd.TenDD</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">Đăng ký</button>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

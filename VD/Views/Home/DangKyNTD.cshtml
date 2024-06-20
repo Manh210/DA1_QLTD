@@ -1,0 +1,77 @@
+﻿@model VD.Models.NhaTuyenDung
+@{
+    ViewBag.Title = "Đăng ký nhà tuyển dụng mới";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký cho nhà tuyển dụng | Wavefire Coding</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/styles/style.css">
+    <style>
+        /* Your custom CSS styles here */
+
+        .box-container {
+            margin-left: 400px; /* Căn lề trái */
+            margin-right: 400px; /* Căn lề phải */
+            padding-top: 200px;
+        }
+    </style>
+</head>
+<body>
+<div class="main-wrap">
+    <div class="box-container">
+        <h2 class="text-center mb-4">Đăng ký cho nhà tuyển dụng</h2>
+        <form action="~/Home/DangKyNTD" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                @Html.LabelFor(model => model.TaiKhoan.TenDN, "Tên đăng nhập")
+                @Html.TextBox("tenDangNhap", null, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.TaiKhoan.MK, "Mật khẩu")
+                @Html.Password("matKhau", null, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label for="TenNTD">Tên công ty:</label>
+                @*@Html.LabelFor(model => model.TenNTD)*@
+                @*@Html.TextBoxFor(model => model.TenNTD, new { @class = "form-control" })*@
+                <input type="text" class="form-control" id="TenNTD" name="TenNTD" required>
+            </div>
+            <div class="form-group">
+                <label for="GPKD">Số giấy phép kinh doanh:</label>
+                @*@Html.LabelFor(model => model.GPKD)*@
+                @*@Html.TextBoxFor(model => model.GPKD, new { @class = "form-control" })*@
+                <input type="text" class="form-control" id="GPKD" name="GPKD" required>
+            </div>
+            <div class="form-group">
+                <label for="imageNTD">Ảnh đại diện:</label>
+                <input type="file" class="form-control-file" id="imageNTD" name="imageNTD" accept=".jpg" required>
+            </div>
+            <div class="form-group">
+                <label for="QuocGia">Quốc gia:</label>
+                @*@Html.LabelFor(model => model.QuocGia)*@
+                @*@Html.TextBoxFor(model => model.QuocGia, new { @class = "form-control" })*@
+                <input type="text" class="form-control" id="QuocGia" name="QuocGia" required>
+            </div>
+            <div class="form-group">
+                <label for="QuyMo">Quy mô:</label>
+                @*@Html.LabelFor(model => model.QuyMo)*@
+                @*@Html.TextBoxFor(model => model.QuyMo, new { @class = "form-control" })*@
+                <input type="text" class="form-control" id="QuyMo" name="QuyMo" required>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block">Đăng ký</button>
+            </div>
+        </form>
+
+
+    </div>
+</div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

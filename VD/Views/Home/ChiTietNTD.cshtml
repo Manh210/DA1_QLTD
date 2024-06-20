@@ -1,0 +1,61 @@
+﻿@model VD.Models.NhaTuyenDung
+@{
+    ViewBag.Title = "ChiTietNTD";
+    Layout = "~/Views/Shared/_MainPageNTD.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin nhà tuyển dụng | Wavefire Coding</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/styles/style.css">
+    <style>
+        /* Your custom CSS styles here */
+
+        .box-container {
+            margin-left: 400px; /* Căn lề trái */
+            margin-right: 400px; /* Căn lề phải */
+            padding-top: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-wrap">
+        <div class="box-container ">
+            <h2 class="text-center mb-4">Thông tin nhà tuyển dụng</h2>
+            <div class="form-group">
+                <label for="HoTen">Tên</label>
+                <input class="form-control" id="HoTen" name="HoTen" type="text" value="@Model.TenNTD">
+            </div>
+            <div class="form-group">
+                <label for="AnhDD">Ảnh đại diện</label>
+                <img src="@Model.AnhDD" style="height:100px;width:100px" />
+            </div>
+            <div class="form-group">
+                <label for="SDT">Quốc gia</label>
+                <input class="form-control" id="SDT" name="SDT" type="text" value="@Model.QuocGia">
+            </div>
+            <div class="form-group">
+                <label for="QuyMo">Quy mô</label>
+                <input class="form-control" id="QuyMo" name="QuyMo" type="text" value="@Model.QuyMo">
+            </div>
+            <div class="form-group">
+                <label for="GPKD">Số giấy phép kinh doanh</label>
+                <input class="form-control" id="GPKD" name="GPKD" type="text" value="@Model.GPKD">
+            </div>
+            <div class="form-group">
+                <a href="/Home/DoiNTD/@Model.ID_NTD" class="btn btn-primary btn-block">Đổi thông tin</a>
+            </div>
+            <div class="form-group">
+                <a href="/Home/MainPage_NTD" class="btn btn-danger btn-block">Quay lại</a>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

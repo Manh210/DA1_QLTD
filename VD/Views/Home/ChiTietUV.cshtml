@@ -1,0 +1,80 @@
+﻿@model VD.Models.UngVien
+@{
+    ViewBag.Title = "ChiTietUV";
+    Layout = "~/Views/Shared/_MainPage.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin ứng viên | Wavefire Coding</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/styles/style.css">
+    <style>
+        /* Your custom CSS styles here */
+
+        .box-container {
+            margin-left: 400px; /* Căn lề trái */
+            margin-right: 400px; /* Căn lề phải */
+            padding-top: 200px;
+        }
+    </style>
+</head>
+
+<!-- Main content -->
+<body>
+    <div class="main-wrap">
+        <div class="box-container ">
+            <h2 class="text-center mb-4">Thông tin ứng viên</h2>
+            <div class="form-group">
+                <label for="HoTen">Họ và tên</label>
+                <input class="form-control" id="HoTen" name="HoTen" type="text" value="@Model.HoTen">
+            </div>
+            <div class="form-group">
+                <label for="SDT">Số điện thoại</label>
+                <input class="form-control" id="SDT" name="SDT" type="text" value="@Model.SDT">
+            </div>
+            <div class="form-group">
+                <label for="DOB">Ngày sinh</label>
+                <input class="form-control" id="DOB" name="DOB" type="text" value="@Model.DOB">
+            </div>
+            <div class="form-group">
+                <label for="GioiTinh">Giới tính</label>
+                <input class="form-control" id="GioiTinh" name="GioiTinh" type="text" value="@Model.GioiTinh">
+            </div>
+            <div class="form-group">
+                <label for="Email">Email</label>
+                <input class="form-control" id="Email" name="Email" type="email" value="@Model.Email">
+            </div>
+            <div class="form-group">
+                <label for="CV">CV</label>
+                <input class="form-control" id="CV" name="CV" type="text" value="@Model.CV">
+            </div>
+            <div class="form-group">
+                <label for="SYLL">Sơ yếu lý lịch</label>
+                <input class="form-control" id="SYLL" name="SYLL" type="text" value="@Model.SYLL">
+            </div>
+            <div class="form-group">
+                <label for="SYLL">Ảnh đại diện</label>
+                <img src="@Model.AnhDD" style="height:100px;width:100px"/>
+            </div>
+            <div class="form-group">
+                <label for="DiaDiem">Địa điểm</label>
+                <input class="form-control" id="DiaDiem" name="DiaDiem" type="text" value="@Model.DiaDiem.TenDD">
+            </div>
+            <div class="form-group">
+                <a href="/Home/DoiUV/@Model.ID_UV" class="btn btn-primary btn-block">Đổi thông tin</a>
+            </div>
+            <div class="form-group">
+                <a href="/Home/MainPage" class="btn btn-danger btn-block">Quay lại</a>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+<!-- /.content -->
+</html>

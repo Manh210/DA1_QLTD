@@ -1,0 +1,126 @@
+﻿@model VD.Models.TinTuyenDung
+@{
+    ViewBag.Title = "Chi tiết tin tuyển dụng";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section naviheader{
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/admin/home" class="nav-link">Trang chủ</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/admin/QLTinTuyenDung/Home_QLTTD" class="nav-link">Quản lý tin tuyển dụng</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="#" class="nav-link">@ViewBag.Title</a>
+        </li>
+    </ul>
+}
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>@ViewBag.Title</h1>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Cập nhật trạng thái</h3>
+        </div>
+        <div class="card-body">
+            <div class="bs-stepper-content">
+                @using (Html.BeginForm("Edit_TT", "QLTinTuyenDung", FormMethod.Post))
+                {
+                    @Html.HiddenFor(model => model.ID_TTD)
+                    <!-- your steps content here -->
+                <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Tiêu đề</label>
+                        <input type="text" class="form-control" id="TieuDe" name="TieuDe" value="@Model.TieuDe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Yêu cầu</label>
+                        <input type="text" class="form-control" id="YeuCau" name="YeuCau" value="@Model.YeuCau">
+                    </div>
+                    <div class="form-group">
+                        <label for="TgLam">Thời gian làm</label>
+                        <input type="text" class="form-control" id="TgLam" name="TgLam" value="@Model.TgLam">
+                    </div>
+                    <div class="form-group">
+                        <label for="HanUT">Hạn ứng tuyển</label>
+                        <input type="text" class="form-control" id="HanUT" name="HanUT" value="@Model.HanUT.Value.ToShortDateString()">
+                    </div>
+                    <div class="form-group">
+                        <label for="SoLuongTD">Số lượng tuyển dụng</label>
+                        <input type="text" class="form-control" id="SoLuongTD" name="SoLuongTD" value="@Model.SoLuongTD">
+                    </div>
+                    <div class="form-group">
+                        <label for="PhucLoi">Phúc lợi</label>
+                        <input type="text" class="form-control" id="PhucLoi" name="PhucLoi" value="@Model.PhucLoi">
+                    </div>
+                    <div class="form-group">
+                        <label for="MucLuong">Mức lương</label>
+                        <input type="text" class="form-control" id="MucLuong" name="MucLuong" value="@Model.MucLuong">
+                    </div>
+                    <div class="form-group">
+                        <label for="CapBac">Cấp bậc</label>
+                        <input type="text" class="form-control" id="CapBac" name="CapBac" value="@Model.CapBac">
+                    </div>
+                    <div class="form-group">
+                        <label for="TrangThaiTTD">Trạng thái</label>
+                        <select class="form-control" id="TrangThaiTTD" name="TrangThaiTTD">
+                            <option value="@Model.TrangThaiTTD">@Model.TrangThaiTTD</option>
+                            <option value="Chờ xác nhận">Chờ xác nhận</option>
+                            <option value="Xác nhận">Xác nhận</option>
+                            <option value="Từ chối">Từ chối</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="ID_CV">Công việc</label>
+                        <select class="form-control" id="ID_CV" name="ID_CV" required>
+                            <option value="">Chọn công việc</option>
+                            @foreach (var cv in ViewBag.CongViecs)
+                            {
+                                <option value="@cv.ID_CV" @Html.Raw(cv.ID_CV == Model.ID_CV ? "selected" : "")>@cv.TenCV</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="ID_NTD">Nhà tuyển dụng</label>
+                        <select class="form-control" id="ID_NTD" name="ID_NTD" required>
+                            <option value="">Chọn nhà tuyển dụng</option>
+                            @foreach (var lv in ViewBag.NhaTuyenDungs)
+                            {
+                                <option value="@lv.ID_NTD" @Html.Raw(lv.ID_NTD == Model.ID_NTD ? "selected" : "")>@lv.TenNTD</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <a href="/Admin/QLTinTuyenDung/Home_QLTTD" class="btn btn-danger">Quay lại</a>
+                        <button type="submit" class="btn btn-primary">Cập nhật trạng thái</button>
+                    </div>
+                </div>
+                }
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+
+            </div>
+            <!-- /.card-footer-->
+        </div>
+        <!-- /.card -->
+
+</section>
+<!-- /.content -->

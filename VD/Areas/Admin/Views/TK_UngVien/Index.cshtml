@@ -1,0 +1,134 @@
+﻿@model List<VD.Models.TaiKhoan>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section naviheader{
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/Admin/Home" class="nav-link">Trang chủ</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/Admin/TK_UngVien" class="nav-link">Quản lý tài khoản ứng viên</a>
+        </li>
+    </ul>
+}
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Quản lý tài khoản ứng viên</h1>
+            </div>
+            @*<div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                        <li class="breadcrumb-item active">Quản lý địa điểm</li>
+                    </ol>
+                </div>*@
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header">
+            <form method="get" action="@Url.Action("Index", "TK_UngVien")">
+                <div class="input-group mb-3">
+                    <input type="text" name="timTK_UV" class="form-control" placeholder="Tìm kiếm tài khoản ứng viên" value="@Request.QueryString["timTK_UV"]">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+                    </div>
+                </div>
+            </form>
+            <h3 class="card-title">Danh sách tài khoản ứng viên</h3>
+
+            <div class="card-tools">
+                @*<a href="/admin/TK_UngVien/add" class="btn btn-primary">Thêm mới</a>*@
+            </div>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Số thứ tự</th>
+                        <th>ID</th>
+                        <th>Tên đăng nhập</th>
+                        <th>Mật khẩu</th>
+                        <th>Ngày tạo</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        var i = 1;
+                        foreach (var taiKhoan in Model)
+                        {
+                            <tr id="trow_@taiKhoan.ID_TK">
+                                <td>@i</td>
+                                <td>@taiKhoan.ID_TK</td>
+                                <td>@taiKhoan.TenDN</td>
+                                <td>@taiKhoan.MK</td>
+                                <td>@taiKhoan.NgayTao</td>
+                                <td>
+                                    <a href="/admin/TK_UngVien/ChiTietTK/@taiKhoan.ID_TK" class="btn btn-sm btn-primary">Chi tiết</a>
+                                    @*<a href="#" data-id="@taiKhoan.ID_TK" class="btn btn-sm btn-danger btnDelete">Xóa</a>*@
+                                    <a href="/admin/TK_UngVien/Delete/@taiKhoan.ID_TK" class="btn btn-sm btn-danger">Xóa</a>
+                                    @*<a href="@Url.Action("Delete", new { id = taiKhoan.ID_TK })" class="btn btn-sm btn-danger">Xóa</a>*@
+                                </td>
+                            </tr>
+                            i++;
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="3">Không có dữ liệu.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+
+        </div>
+        <!-- /.card-footer-->
+    </div>
+    <!-- /.card -->
+
+</section>
+<!-- /.content -->
+
+@*@section scripts
+    {
+    <script>
+            $(document).ready(function () {
+                $('body').on('click', '.btnDelete', function () {
+                    var id = $(this).data("id")
+                    var conf = confirm('Bạn có muốn xóa tài khoản này không?');
+                    if (conf == true) {
+                        $.ajax({
+                            url: '/Admin/TK_UngVien/Delete',
+                            type: 'POST',
+                            data: { id: id },
+                            success: function (rs) {
+                                if (rs.success) {
+                                    $('#trow_' + id).remove();
+                                }
+                            }
+                        });
+                    }
+                });
+            });
+    </script>
+}*@
+
